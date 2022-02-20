@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: rabc-demo
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/acldb?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone =Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+  redis:
+    host: 1.14.93.107
+    port: 6379
+    database: 0
+    timeout: 1800000
+    password: redis262715
+    lettuce:
+      pool:
+        max-active: 20
+        max-wait: -1
+        max-idle: 0
+        min-idle: 0

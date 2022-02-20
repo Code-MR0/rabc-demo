@@ -1,0 +1,115 @@
+2022-02-20 16:36:14 INFO  main com.mhw.rabc.RabcDemoApplication Starting RabcDemoApplication using Java 1.8.0_131 on DESKTOP-JL7G6PR with PID 22568 (F:\code\graduation-design\code\rabc-demo\target\classes started by 11324 in F:\code\graduation-design\code\rabc-demo)
+2022-02-20 16:36:14 INFO  main com.mhw.rabc.RabcDemoApplication The following profiles are active: dev
+2022-02-20 16:36:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-02-20 16:36:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-02-20 16:36:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2022-02-20 16:36:16 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8001 (http)
+2022-02-20 16:36:16 INFO  main org.apache.catalina.core.AprLifecycleListener An older version [1.2.25] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
+2022-02-20 16:36:16 INFO  main org.apache.catalina.core.AprLifecycleListener Loaded Apache Tomcat Native library [1.2.25] using APR version [1.7.0].
+2022-02-20 16:36:16 INFO  main org.apache.catalina.core.AprLifecycleListener APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
+2022-02-20 16:36:16 INFO  main org.apache.catalina.core.AprLifecycleListener APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-02-20 16:36:16 INFO  main org.apache.catalina.core.AprLifecycleListener OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2022-02-20 16:36:16 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8001"]
+2022-02-20 16:36:16 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2022-02-20 16:36:16 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-02-20 16:36:16 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2022-02-20 16:36:16 INFO  main org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 2161 ms
+2022-02-20 16:36:19 INFO  main org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 4d2c16a2-ad27-4b96-b29d-c9dfa986e8d0
+
+2022-02-20 16:36:19 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5bfc79cb, org.springframework.security.web.context.SecurityContextPersistenceFilter@5e905f2c, org.springframework.security.web.header.HeaderWriterFilter@53314f76, org.springframework.security.web.csrf.CsrfFilter@45554613, org.springframework.security.web.authentication.logout.LogoutFilter@6075b369, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4137aab0, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@5d7dd549, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@27ec8754, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5b48f0f4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3f6cce7f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7b9088f2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3bbf1c0d, org.springframework.security.web.session.SessionManagementFilter@70881123, org.springframework.security.web.access.ExceptionTranslationFilter@7d0cd23c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1b8aaeab]
+2022-02-20 16:36:19 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8001"]
+2022-02-20 16:36:19 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8001 (http) with context path ''
+2022-02-20 16:36:20 INFO  main org.apache.coyote.http11.Http11NioProtocol Pausing ProtocolHandler ["http-nio-8001"]
+2022-02-20 16:36:20 INFO  main org.apache.catalina.core.StandardService Stopping service [Tomcat]
+2022-02-20 16:36:20 INFO  main org.apache.coyote.http11.Http11NioProtocol Stopping ProtocolHandler ["http-nio-8001"]
+2022-02-20 16:36:20 INFO  main org.apache.coyote.http11.Http11NioProtocol Destroying ProtocolHandler ["http-nio-8001"]
+2022-02-20 16:36:20 INFO  main org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-02-20 16:38:46 INFO  main com.mhw.rabc.RabcDemoApplication Starting RabcDemoApplication using Java 1.8.0_131 on DESKTOP-JL7G6PR with PID 3264 (F:\code\graduation-design\code\rabc-demo\target\classes started by 11324 in F:\code\graduation-design\code\rabc-demo)
+2022-02-20 16:38:46 INFO  main com.mhw.rabc.RabcDemoApplication The following profiles are active: dev
+2022-02-20 16:38:47 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-02-20 16:38:47 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-02-20 16:38:47 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+2022-02-20 16:38:48 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8001 (http)
+2022-02-20 16:38:48 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8001"]
+2022-02-20 16:38:48 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2022-02-20 16:38:48 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.43]
+2022-02-20 16:38:48 INFO  main org.apache.catalina.core.AprLifecycleListener Loaded Apache Tomcat Native library [1.2.25] using APR version [1.7.0].
+2022-02-20 16:38:48 INFO  main org.apache.catalina.core.AprLifecycleListener APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-02-20 16:38:48 INFO  main org.apache.catalina.core.AprLifecycleListener APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-02-20 16:38:48 INFO  main org.apache.catalina.core.AprLifecycleListener OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2022-02-20 16:38:48 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2022-02-20 16:38:48 INFO  main org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 1850 ms
+2022-02-20 16:38:49 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Initializing ExecutorService 'applicationTaskExecutor'
+2022-02-20 16:38:50 INFO  main org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 04aacf50-d6a8-4de2-9538-27d05ed36cbb
+
+2022-02-20 16:38:51 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4645679e, org.springframework.security.web.context.SecurityContextPersistenceFilter@55877274, org.springframework.security.web.header.HeaderWriterFilter@6b70d1fb, org.springframework.security.web.csrf.CsrfFilter@1a914089, org.springframework.security.web.authentication.logout.LogoutFilter@2b43f314, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@143fefaf, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4f3356c0, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@3a0b6a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6486fe7b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6d4a82, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4eeab3e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@539c4830, org.springframework.security.web.session.SessionManagementFilter@7da1e005, org.springframework.security.web.access.ExceptionTranslationFilter@6ac45c0c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3dec3f87]
+2022-02-20 16:38:51 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8001"]
+2022-02-20 16:38:51 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8001 (http) with context path ''
+2022-02-20 16:38:51 INFO  main com.mhw.rabc.RabcDemoApplication Started RabcDemoApplication in 5.296 seconds (JVM running for 7.028)
+2022-02-20 16:39:22 INFO  http-nio-8001-exec-1 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-02-20 16:39:22 INFO  http-nio-8001-exec-1 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2022-02-20 16:39:22 INFO  http-nio-8001-exec-1 org.springframework.web.servlet.DispatcherServlet Completed initialization in 1 ms
+2022-02-20 16:42:11 INFO  SpringContextShutdownHook org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
+2022-02-20 16:42:20 INFO  main com.mhw.rabc.RabcDemoApplication Starting RabcDemoApplication using Java 1.8.0_131 on DESKTOP-JL7G6PR with PID 22340 (F:\code\graduation-design\code\rabc-demo\target\classes started by 11324 in F:\code\graduation-design\code\rabc-demo)
+2022-02-20 16:42:20 INFO  main com.mhw.rabc.RabcDemoApplication The following profiles are active: dev
+2022-02-20 16:42:21 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-02-20 16:42:21 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-02-20 16:42:21 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2022-02-20 16:42:22 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8001 (http)
+2022-02-20 16:42:22 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8001"]
+2022-02-20 16:42:22 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2022-02-20 16:42:22 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.43]
+2022-02-20 16:42:22 INFO  main org.apache.catalina.core.AprLifecycleListener Loaded Apache Tomcat Native library [1.2.25] using APR version [1.7.0].
+2022-02-20 16:42:22 INFO  main org.apache.catalina.core.AprLifecycleListener APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-02-20 16:42:22 INFO  main org.apache.catalina.core.AprLifecycleListener APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-02-20 16:42:22 INFO  main org.apache.catalina.core.AprLifecycleListener OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2022-02-20 16:42:22 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2022-02-20 16:42:22 INFO  main org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 1672 ms
+2022-02-20 16:42:22 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Initializing ExecutorService 'applicationTaskExecutor'
+2022-02-20 16:42:24 INFO  main org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 2b3c2d27-dc56-4e23-9efd-54ab3e5ade1b
+
+2022-02-20 16:42:24 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4645679e, org.springframework.security.web.context.SecurityContextPersistenceFilter@55877274, org.springframework.security.web.header.HeaderWriterFilter@6b70d1fb, org.springframework.security.web.csrf.CsrfFilter@1a914089, org.springframework.security.web.authentication.logout.LogoutFilter@2b43f314, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@143fefaf, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4f3356c0, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@3a0b6a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6486fe7b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6d4a82, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4eeab3e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@539c4830, org.springframework.security.web.session.SessionManagementFilter@7da1e005, org.springframework.security.web.access.ExceptionTranslationFilter@6ac45c0c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3dec3f87]
+2022-02-20 16:42:24 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8001"]
+2022-02-20 16:42:24 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8001 (http) with context path ''
+2022-02-20 16:42:25 INFO  main com.mhw.rabc.RabcDemoApplication Started RabcDemoApplication in 5.149 seconds (JVM running for 7.078)
+2022-02-20 16:42:33 INFO  http-nio-8001-exec-1 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-02-20 16:42:33 INFO  http-nio-8001-exec-1 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2022-02-20 16:42:33 INFO  http-nio-8001-exec-1 org.springframework.web.servlet.DispatcherServlet Completed initialization in 1 ms
+2022-02-20 17:01:20 INFO  SpringContextShutdownHook org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
+2022-02-20 17:22:29 INFO  main com.mhw.rabc.RabcDemoApplication Starting RabcDemoApplication using Java 1.8.0_131 on DESKTOP-JL7G6PR with PID 24036 (F:\code\graduation-design\code\rabc-demo\target\classes started by 11324 in F:\code\graduation-design\code\rabc-demo)
+2022-02-20 17:22:29 INFO  main com.mhw.rabc.RabcDemoApplication The following profiles are active: dev
+2022-02-20 17:22:30 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-02-20 17:22:30 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-02-20 17:22:30 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2022-02-20 17:22:33 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'redisConfig' of type [com.mhw.rabc.config.RedisConfig$$EnhancerBySpringCGLIB$$e576f331] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-02-20 17:22:33 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8001 (http)
+2022-02-20 17:22:33 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8001"]
+2022-02-20 17:22:33 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2022-02-20 17:22:33 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.43]
+2022-02-20 17:22:33 INFO  main org.apache.catalina.core.AprLifecycleListener Loaded Apache Tomcat Native library [1.2.25] using APR version [1.7.0].
+2022-02-20 17:22:33 INFO  main org.apache.catalina.core.AprLifecycleListener APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2022-02-20 17:22:33 INFO  main org.apache.catalina.core.AprLifecycleListener APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-02-20 17:22:33 INFO  main org.apache.catalina.core.AprLifecycleListener OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2022-02-20 17:22:33 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2022-02-20 17:22:33 INFO  main org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 4067 ms
+2022-02-20 17:22:34 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Initializing ExecutorService 'applicationTaskExecutor'
+2022-02-20 17:22:36 INFO  main org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: f3114d81-0c6f-425b-a095-eaabceeb9505
+
+2022-02-20 17:22:36 INFO  main org.springframework.security.web.DefaultSecurityFilterChain Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@241b971f, org.springframework.security.web.context.SecurityContextPersistenceFilter@584ca390, org.springframework.security.web.header.HeaderWriterFilter@5fdd97c1, org.springframework.security.web.csrf.CsrfFilter@50cdfafa, org.springframework.security.web.authentication.logout.LogoutFilter@124eb83d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@e3899fd, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@10817f46, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@125f16b2, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@245cb8df, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@37d3e140, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2aea717c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5384ce66, org.springframework.security.web.session.SessionManagementFilter@15d236fd, org.springframework.security.web.access.ExceptionTranslationFilter@5faeeb56, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@24d8f87a]
+2022-02-20 17:22:36 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8001"]
+2022-02-20 17:22:36 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8001 (http) with context path ''
+2022-02-20 17:22:36 INFO  main com.mhw.rabc.RabcDemoApplication Started RabcDemoApplication in 7.637 seconds (JVM running for 9.386)
+2022-02-20 17:22:47 INFO  http-nio-8001-exec-1 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-02-20 17:22:47 INFO  http-nio-8001-exec-1 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2022-02-20 17:22:47 INFO  http-nio-8001-exec-1 org.springframework.web.servlet.DispatcherServlet Completed initialization in 2 ms
+2022-02-20 17:23:22 INFO  SpringContextShutdownHook org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
