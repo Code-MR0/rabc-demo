@@ -8,10 +8,12 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * description: 公共返回对象封装
- * @author : mhw
- * @date : 2022/2/16 13:35
- */
+ * @className: Result
+ * @description: 公共返回对象封装
+ * @author: mhw
+ * @date: 2022-02-23
+ * @version: 1.0
+ **/
 @Data
 @ApiModel(value = "返回对象封装",description = "返回对象封装")
 public class Result<T> implements Serializable {

@@ -13,11 +13,12 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * Knife4jConfig
- *
- * @author 1132493269@qq.com
- * @date 2022/2/20
- */
+ * @className: Knife4jConfiguration
+ * @description: Knife4jConfiguration
+ * @author: mhw
+ * @date: 2022-02-23
+ * @version: 1.0
+ **/
 @Configuration
 @EnableSwagger2
 @EnableKnife4j

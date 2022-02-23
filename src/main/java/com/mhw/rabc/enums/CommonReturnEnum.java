@@ -1,12 +1,12 @@
 package com.mhw.rabc.enums;
 
 /**
- * Description: 公共通用枚举返回
- * Create Date: 2020/6/19
- *
- * @author mhw
- * @version 1.0
- */
+ * @className: CommonReturnEnum
+ * @description: 公共枚举返回
+ * @author: mhw
+ * @date: 2022-02-23
+ * @version: 1.0
+ **/
 public enum CommonReturnEnum {
 
     // 操作成功
@@ -32,11 +32,9 @@ public enum CommonReturnEnum {
     }
 
     /**
-     * @description : 根据code获取name
-     *
-     * @param code
-     * @return java.lang.String
+     * @description: 根据code获取name
      */
+    @SuppressWarnings("all")
     public static String getNameByCode(String code) {
         for (CommonReturnEnum platformFree : CommonReturnEnum.values()) {
             if (code.equals(platformFree.getCode())) {

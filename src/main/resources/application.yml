@@ -12,7 +12,7 @@ spring:
     active: dev
 
 mybatis-plus:
-  # typeEnumsPackage: com.mhw.rabc.*.enums
+  typeEnumsPackage: com.mhw.rabc.enums
   mapper-locations: lasspath:com/mhw/rabc/**/mapper/xml/*.xml
   global-config:
     db-config:

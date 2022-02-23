@@ -8,10 +8,15 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * @author 11324
- */
+ * @className: GlobalExceptionHandler
+ * @description: 统一异常处理
+ * @author: mhw
+ * @date: 2022-02-23
+ * @version 1.0
+ **/
 @ControllerAdvice
 @Slf4j
+@SuppressWarnings("rawtypes")
 public class GlobalExceptionHandler {
 
 

@@ -19,7 +19,8 @@
 		<jwt.version>0.9.1</jwt.version>
 		<fastjson.version>1.2.28</fastjson.version>
 		<mybatis-plus.version>3.5.1</mybatis-plus.version>
-		<commins-pools.version>2.6.0</commins-pools.version>
+		<commins-pools.version>2.10.0</commins-pools.version>
+		<mysql.version>5.1.46</mysql.version>
 	</properties>
 	<dependencies>
 		<!--web-->
@@ -39,10 +40,10 @@
 			<version>${commins-pools.version}</version>
 		</dependency>
 		<!--security-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-security</artifactId>-->
+<!--		</dependency>-->
 		<!--mybatis-plus 持久层-->
 		<dependency>
 			<groupId>com.baomidou</groupId>
@@ -53,13 +54,14 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
 		</dependency>
 		<!-- JWT -->
-		<dependency>
-			<groupId>io.jsonwebtoken</groupId>
-			<artifactId>jjwt</artifactId>
-			<version>${jwt.version}</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>io.jsonwebtoken</groupId>-->
+<!--			<artifactId>jjwt</artifactId>-->
+<!--			<version>${jwt.version}</version>-->
+<!--		</dependency>-->
 		<!--knife4j-->
 		<dependency>
 			<groupId>com.github.xiaoymin</groupId>
@@ -85,7 +87,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>2.4.3</version>
 			</plugin>
 		</plugins>
 		<resources>
@@ -93,6 +94,14 @@
 				<directory>src/main/java</directory>
 				<includes>
 					<include>**/*.xml</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.yml</include>
+					<include>**/*.properties</include>
 				</includes>
 				<filtering>false</filtering>
 			</resource>

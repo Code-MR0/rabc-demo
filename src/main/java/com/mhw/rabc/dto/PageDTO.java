@@ -4,10 +4,12 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * description: 分页参数父类
- * @author : mhw
- * @date : 2022/1/18 13:37
- */
+ * @className: PageDTO
+ * @description: 分页参数工具类
+ * @author: mhw
+ * @date: 2022-02-23
+ * @version: 1.0
+ **/
 @Data
 public class PageDTO {
 

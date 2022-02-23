@@ -3,6 +3,13 @@ package com.mhw.rabc;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @className: RabcDemoApplication
+ * @description: RabcDemoApplication
+ * @author: mhw
+ * @date: 2022-02-23
+ * @version 1.0
+ **/
 @SpringBootApplication
 public class RabcDemoApplication {
 

@@ -20,13 +20,15 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 import java.time.Duration;
 
 /**
- * RedisConfig
- *
- * @author 1132493269@qq.com
- * @date 2022/2/20
- */
+ * @className: RedisConfig
+ * @description: RedisConfig
+ * @author: mhw
+ * @date: 2022-02-23
+ * @version 1.0
+ **/
 @EnableCaching
 @Configuration
+@SuppressWarnings("all")
 public class RedisConfig extends CachingConfigurerSupport {
 
     @Bean
