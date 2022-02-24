@@ -2,6 +2,7 @@ package com.mhw.rabc.handler;
 
 
 import com.mhw.rabc.dto.Result;
+import com.mhw.rabc.exception.MyBaseException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -32,6 +33,13 @@ public class GlobalExceptionHandler {
     public Result error(ArithmeticException e) {
         e.printStackTrace();
         return Result.failed("执行了ArithmeticException异常处理..");
+    }
+
+    @ExceptionHandler(MyBaseException.class)
+    @ResponseBody
+    public Result error(MyBaseException e) {
+        e.printStackTrace();
+        return Result.failed(e.getMessage());
     }
 
 

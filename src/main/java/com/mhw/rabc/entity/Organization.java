@@ -8,8 +8,12 @@ import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.Version;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+
+import com.mhw.rabc.dto.PageDTO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,10 +24,10 @@ import lombok.Setter;
  * @date: 2022-02-23
  * @version: 1.0
  **/
-@Getter
-@Setter
+@Data
+@EqualsAndHashCode(callSuper = false)
 @ApiModel(value = "Organization对象", description = "机构/组织表")
-public class Organization implements Serializable {
+public class Organization extends PageDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

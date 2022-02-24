@@ -20,6 +20,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     public void insertFill(MetaObject metaObject) {
         // 起始版本 3.3.0(推荐使用)
         this.strictInsertFill(metaObject, "gmtCreate", LocalDateTime.class, LocalDateTime.now());
+        this.strictInsertFill(metaObject, "gmtModified", LocalDateTime.class, LocalDateTime.now());
     }
 
     @Override

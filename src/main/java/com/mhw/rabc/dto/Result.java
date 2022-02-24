@@ -15,17 +15,18 @@ import java.io.Serializable;
  * @version: 1.0
  **/
 @Data
-@ApiModel(value = "返回对象封装",description = "返回对象封装")
+@ApiModel(value = "返回对象封装", description = "返回对象封装")
+@SuppressWarnings("all")
 public class Result<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(notes  = "返回码",required = true)
+    @ApiModelProperty(notes = "返回码", required = true)
     private int code;
 
-    @ApiModelProperty(notes  = "返回数据")
+    @ApiModelProperty(notes = "返回数据")
     private T data;
 
-    @ApiModelProperty(notes  = "返回信息",required = true)
+    @ApiModelProperty(notes = "返回信息", required = true)
     private String msg;
 
     public Result() {
@@ -33,7 +34,20 @@ public class Result<T> implements Serializable {
     }
 
     /**
-     * description: 成功返回, 不指定参数
+     * 布尔值判断返回
+     *
+     * @return : Result<T>
+     */
+    public static <T> Result<T> check(Boolean flag) {
+        if (flag) {
+            return success();
+        }
+        return failed();
+    }
+
+    /**
+     * 成功返回, 不指定参数
+     *
      * @return : Result<T>
      */
     public static <T> Result<T> success() {
@@ -41,7 +55,8 @@ public class Result<T> implements Serializable {
     }
 
     /**
-     * description: 成功返回，指定msg
+     * 成功返回，指定msg
+     *
      * @param msg
      * @return : Result<T>
      */
@@ -50,7 +65,8 @@ public class Result<T> implements Serializable {
     }
 
     /**
-     * description: 成功返回，指定对象
+     * 成功返回，指定对象
+     *
      * @param data
      * @return : Result<T>
      */
@@ -59,7 +75,8 @@ public class Result<T> implements Serializable {
     }
 
     /**
-     * description: 成功返回，指定msg,data
+     * 成功返回，指定msg,data
+     *
      * @param msg
      * @param data
      * @return : Result<T>
@@ -69,7 +86,8 @@ public class Result<T> implements Serializable {
     }
 
     /**
-     * description: 成功返回，指定code,msg,data
+     * 成功返回，指定code,msg,data
+     *
      * @param code
      * @param msg
      * @param data
@@ -81,7 +99,8 @@ public class Result<T> implements Serializable {
 
 
     /**
-     * description: 失败返回
+     * 失败返回
+     *
      * @return : Result<T>
      */
     public static <T> Result<T> failed() {
@@ -89,7 +108,8 @@ public class Result<T> implements Serializable {
     }
 
     /**
-     * description: 失败返回，指定msg
+     * 失败返回，指定msg
+     *
      * @param msg
      * @return : Result<T>
      */
@@ -98,7 +118,8 @@ public class Result<T> implements Serializable {
     }
 
     /**
-     * description: 失败返回，指定msg,data
+     * 失败返回，指定msg,data
+     *
      * @param msg
      * @param data
      * @return : Result<T>
@@ -108,7 +129,8 @@ public class Result<T> implements Serializable {
     }
 
     /**
-     * description: 失败返回，指定code,msg,data
+     * 失败返回，指定code,msg,data
+     *
      * @param code
      * @param msg
      * @param data

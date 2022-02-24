@@ -1,5 +1,6 @@
 package com.mhw.rabc.dto;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -14,8 +15,10 @@ import lombok.Data;
 public class PageDTO {
 
     @ApiModelProperty(notes  = "查询条数")
+    @TableField(exist = false)
     private Integer limit;
 
     @ApiModelProperty(notes  = "页数")
+    @TableField(exist = false)
     private Integer page;
 }
