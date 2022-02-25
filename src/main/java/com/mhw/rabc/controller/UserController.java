@@ -45,6 +45,7 @@ public class UserController {
     @GetMapping("/pageList")
     public Result pageList(User user) {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>(user);
+        queryWrapper.like("username",user.getUsername());
         Page<User> page = new Page<>(user.getPage(), user.getLimit());
         Page<User> pageList = userService.page(page, queryWrapper);
         return Result.success(pageList);

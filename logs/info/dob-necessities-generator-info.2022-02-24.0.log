@@ -256,3 +256,19 @@
 2022-02-24 17:30:31 INFO  SpringContextShutdownHook org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
 2022-02-24 17:30:31 INFO  SpringContextShutdownHook com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
 2022-02-24 17:30:31 INFO  SpringContextShutdownHook com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+2022-02-24 17:50:42 INFO  main com.mhw.rabc.RabcDemoApplication Starting RabcDemoApplication using Java 1.8.0_311 on DESKTOP-GPLIMFT with PID 12884 (E:\code\rabc-demo\target\classes started by 11324 in E:\code\rabc-demo)
+2022-02-24 17:50:42 INFO  main com.mhw.rabc.RabcDemoApplication The following profiles are active: dev
+2022-02-24 17:50:43 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-02-24 17:50:43 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-02-24 17:50:43 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2022-02-24 17:50:44 INFO  main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'redisConfig' of type [com.mhw.rabc.config.RedisConfig$$EnhancerBySpringCGLIB$$c1ffa832] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-02-24 17:50:44 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8001 (http)
+2022-02-24 17:50:44 INFO  main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8001"]
+2022-02-24 17:50:44 INFO  main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2022-02-24 17:50:44 INFO  main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.43]
+2022-02-24 17:50:44 INFO  main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2022-02-24 17:50:44 INFO  main org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext Root WebApplicationContext: initialization completed in 1542 ms
+2022-02-24 17:50:45 INFO  main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Initializing ExecutorService 'applicationTaskExecutor'
+2022-02-24 17:50:46 INFO  main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8001"]
+2022-02-24 17:50:46 INFO  main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8001 (http) with context path ''
+2022-02-24 17:50:46 INFO  main com.mhw.rabc.RabcDemoApplication Started RabcDemoApplication in 4.056 seconds (JVM running for 5.011)

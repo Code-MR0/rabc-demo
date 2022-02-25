@@ -26,7 +26,7 @@ public interface UserService extends IService<User> {
      * 新增
      *
      * @param userList 用户信息
-     * @return flag
+     * @return 新增失败用户信息
      */
     List<User> saveList(List<User> userList);
 
