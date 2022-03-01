@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.security.sasl.AuthenticationException;
+import java.nio.file.AccessDeniedException;
+
 /**
  * @className: GlobalExceptionHandler
  * @description: 统一异常处理
@@ -20,21 +23,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @SuppressWarnings("rawtypes")
 public class GlobalExceptionHandler {
 
-
-    @ExceptionHandler(Exception.class)
-    @ResponseBody
-    public Result error(Exception e) {
-        e.printStackTrace();
-        return Result.failed("执行了全局异常处理..");
-    }
-
-    @ExceptionHandler(ArithmeticException.class)
-    @ResponseBody
-    public Result error(ArithmeticException e) {
-        e.printStackTrace();
-        return Result.failed("执行了ArithmeticException异常处理..");
-    }
-
     @ExceptionHandler(MyBaseException.class)
     @ResponseBody
     public Result error(MyBaseException e) {
@@ -42,5 +30,10 @@ public class GlobalExceptionHandler {
         return Result.failed(e.getMessage());
     }
 
-
+    @ExceptionHandler(Exception.class)
+    @ResponseBody
+    public Result error(Exception e) {
+        e.printStackTrace();
+        return Result.failed("执行了全局异常处理");
+    }
 }
