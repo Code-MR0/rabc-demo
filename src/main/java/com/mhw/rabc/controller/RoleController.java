@@ -43,7 +43,17 @@ public class RoleController {
     @ApiOperation(value = "分页列表")
     @GetMapping("/pageList")
     public Result pageList(Role role) {
-        QueryWrapper<Role> queryWrapper = new QueryWrapper<>(role);
+        QueryWrapper<Role> queryWrapper = new QueryWrapper<>();
+        if (role.getRoleName() != null) {
+            queryWrapper.like("role_name", role.getRoleName());
+        }
+        if (role.getRoleName() == null && role.getRoleCode() != null) {
+            queryWrapper.like("role_code", role.getRoleCode());
+        }
+        if (role.getRoleName() != null && role.getRoleCode() != null) {
+            queryWrapper.or();
+            queryWrapper.like("role_code", role.getRoleCode());
+        }
         Page<Role> page = new Page<>(role.getPage(), role.getLimit());
         Page<Role> pageList = roleService.page(page, queryWrapper);
         return Result.success(pageList);
@@ -94,11 +104,11 @@ public class RoleController {
     @ApiOperation(value = "批量新增")
     @PostMapping("/save")
     public Result save(@RequestBody List<Role> roleList) {
-        List<Role> list= roleService.saveList(roleList);
-        if (list.size()==0){
+        List<Role> list = roleService.saveList(roleList);
+        if (list.size() == 0) {
             return Result.success();
         }
-        return Result.failed("部分角色添加失败",list);
+        return Result.failed("部分角色添加失败", list);
     }
 
     /**
