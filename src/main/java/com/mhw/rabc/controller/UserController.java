@@ -44,8 +44,17 @@ public class UserController {
     @ApiOperation(value = "分页列表")
     @GetMapping("/pageList")
     public Result pageList(User user) {
-        QueryWrapper<User> queryWrapper = new QueryWrapper<>(user);
-        queryWrapper.like("username",user.getUsername());
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        if(user.getUsername()!=null){
+            queryWrapper.like("username",user.getUsername());
+        }
+        if (user.getUsername() == null && user.getNickName() != null) {
+            queryWrapper.like("nick_name", user.getNickName());
+        }
+        if (user.getUsername() != null && user.getNickName() != null) {
+            queryWrapper.or();
+            queryWrapper.like("nick_name", user.getNickName());
+        }
         Page<User> page = new Page<>(user.getPage(), user.getLimit());
         Page<User> pageList = userService.page(page, queryWrapper);
         return Result.success(pageList);
