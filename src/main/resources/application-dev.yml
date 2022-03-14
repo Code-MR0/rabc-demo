@@ -1,6 +1,9 @@
 spring:
   application:
     name: rabc-demo
+  data:
+    mongodb:
+      uri: mongodb://admin:123456@1.14.93.107:27017/form?authSource=admin
   datasource:
     url: jdbc:mysql://1.14.93.107:3306/rabc_demo?useUnicode=true&characterEncoding=utf-8&useSSL=false
     driver-class-name: com.mysql.jdbc.Driver

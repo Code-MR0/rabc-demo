@@ -2,7 +2,7 @@
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
     <contextName>logs</contextName>
     <!--  项目名称  -->
-    <property name="log.name.prefix" value="dob-necessities-generator"/>
+    <property name="log.name.prefix" value="mhw-bysj"/>
     <!--  日志位置  -->
     <property name="log.path" value="logs" />
     <!--  日志保留时长  -->

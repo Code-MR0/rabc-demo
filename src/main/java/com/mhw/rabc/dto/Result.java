@@ -46,6 +46,19 @@ public class Result<T> implements Serializable {
     }
 
     /**
+     * null判断返回
+     *
+     * @return : Result<T>
+     */
+    public static <T> Result<T> check(T flag) {
+        if (flag != null) {
+            return success(flag);
+        }
+        return failed();
+    }
+
+
+    /**
      * 成功返回, 不指定参数
      *
      * @return : Result<T>
