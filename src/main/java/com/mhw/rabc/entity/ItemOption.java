@@ -19,4 +19,6 @@ public class ItemOption {
     private String label;
     @ApiModelProperty("value")
     private String value;
+    @ApiModelProperty("是否默认选择")
+    private boolean isSelect;
 }

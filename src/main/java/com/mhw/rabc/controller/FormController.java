@@ -1,14 +1,21 @@
 package com.mhw.rabc.controller;
 
+import com.mhw.rabc.dto.MangoPageDTO;
+import com.mhw.rabc.dto.PageDTO;
 import com.mhw.rabc.dto.Result;
 import com.mhw.rabc.entity.Form;
+import com.mhw.rabc.entity.FormItem;
 import com.mhw.rabc.service.FormService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @className: FormController
@@ -30,14 +37,25 @@ public class FormController {
         this.formService = formService;
     }
     /**
-     * 分页列表
+     * 列表
      *
      */
-    @ApiOperation(value = "分页列表")
-    @GetMapping("")
+    @ApiOperation(value = "列表")
+    @GetMapping("/list")
     public Result getAllForms() {
         List<Form> formList = formService.findAll();
         return Result.check(formList);
+    }
+
+    /**
+     * 分页列表
+     */
+    @ApiOperation(value = "分页列表")
+    @GetMapping("")
+    public Result pageList(PageDTO pageDTO) {
+        MangoPageDTO mangoPageDTO = new MangoPageDTO(pageDTO.getPage(), pageDTO.getLimit(), Sort.by(Sort.Direction.ASC, "id"));
+        Page<Form> formItemList = formService.findAll(mangoPageDTO);
+        return Result.check(formItemList);
     }
 
     /**
@@ -60,6 +78,8 @@ public class FormController {
     @ApiOperation(value = "新增form")
     @PostMapping("")
     public Result addNewForm(@RequestBody Form form) {
+        form.setId(UUID.randomUUID().toString());
+        form.setOwner(SecurityContextHolder.getContext().getAuthentication().getName());
         Form res = formService.save(form);
         return Result.check(res);
     }

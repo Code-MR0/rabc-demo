@@ -43,7 +43,6 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
         }
         boolean flag = saveBatch(saveList);
         if (!flag){
-            throw new MyBaseException("批量新增失败");
         }
         return saveFail;
     }

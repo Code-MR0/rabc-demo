@@ -17,6 +17,9 @@ import java.util.List;
 @Data
 @ApiModel(value = "Form对象", description = "表单和模板结构描述")
 public class Form {
+
+    @ApiModelProperty("表单拥有者")
+    private String owner;
     @ApiModelProperty("id")
     private String id;
     @ApiModelProperty("表单标题")

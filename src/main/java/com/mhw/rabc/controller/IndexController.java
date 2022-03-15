@@ -36,9 +36,10 @@ public class IndexController {
      */
     @ApiOperation(value = "用户信息")
     @GetMapping("/info")
-    public Result info() {
+    public Result info(String token) {
+        String userInfo = tokenManager.getUserInfoFromToken(token);
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>(16);
         List<String> roleNameList = new ArrayList<>();
         roleNameList.add("");
         map.put("name", username);

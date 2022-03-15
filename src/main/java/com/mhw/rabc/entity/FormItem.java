@@ -17,10 +17,15 @@ import java.util.List;
 @ApiModel(value = "FormItem对象", description = "表单项")
 public class FormItem {
 
+    @ApiModelProperty("表单项拥有者")
+    private String owner;
+    @ApiModelProperty("id")
+    private String id;
     @ApiModelProperty("label")
     private String label;
     @ApiModelProperty("type")
     private String type;
     @ApiModelProperty("itemOptions")
     private List<ItemOption> values;
+
 }
