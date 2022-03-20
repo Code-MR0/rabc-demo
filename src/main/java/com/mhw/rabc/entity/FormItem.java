@@ -1,8 +1,10 @@
 package com.mhw.rabc.entity;
 
+import com.mhw.rabc.dto.PageDTO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
@@ -14,8 +16,9 @@ import java.util.List;
  * @version: 1.0
  **/
 @Data
+@EqualsAndHashCode(callSuper = false)
 @ApiModel(value = "FormItem对象", description = "表单项")
-public class FormItem {
+public class FormItem extends PageDTO {
 
     @ApiModelProperty("表单项拥有者")
     private String owner;

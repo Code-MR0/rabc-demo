@@ -20,5 +20,5 @@ public class ItemOption {
     @ApiModelProperty("value")
     private String value;
     @ApiModelProperty("是否默认选择")
-    private boolean isSelect;
+    private boolean select;
 }

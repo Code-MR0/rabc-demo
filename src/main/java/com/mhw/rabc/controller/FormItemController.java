@@ -9,6 +9,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
@@ -39,7 +40,7 @@ public class FormItemController {
      * 列表
      */
     @ApiOperation(value = "列表")
-    @GetMapping("/list")
+    @GetMapping("/list/")
     public Result getAllFormItems() {
         List<FormItem> formItemList = formItemService.findAll();
         return Result.check(formItemList);
@@ -48,11 +49,26 @@ public class FormItemController {
     /**
      * 列表
      */
+    @ApiOperation(value = "列表/{owner}")
+    @GetMapping("/list/{owner}")
+    public Result getAllFormItemsByOwner(@PathVariable String owner) {
+        List<FormItem> formItemList = formItemService.findAll(owner);
+        return Result.check(formItemList);
+    }
+
+    /**
+     * 分页列表
+     */
     @ApiOperation(value = "分页列表")
     @GetMapping("")
-    public Result pageList(PageDTO pageDTO) {
-        MangoPageDTO mangoPageDTO = new MangoPageDTO(pageDTO.getPage(), pageDTO.getLimit(), Sort.by(Sort.Direction.ASC, "id"));
-        Page<FormItem> formItemList = formItemService.findAll(mangoPageDTO);
+    public Result pageList(FormItem formItem) {
+        MangoPageDTO mangoPageDTO = new MangoPageDTO(formItem.getPage(), formItem.getLimit(), Sort.by(Sort.Direction.ASC, "id"));
+        Page<FormItem> formItemList;
+        if (formItem.getType()==null){
+            formItemList = formItemService.findAll(mangoPageDTO,SecurityContextHolder.getContext().getAuthentication().getName());
+        }else {
+            formItemList = formItemService.findAll(mangoPageDTO,SecurityContextHolder.getContext().getAuthentication().getName(),formItem.getType());
+        }
         return Result.check(formItemList);
     }
 
@@ -93,6 +109,18 @@ public class FormItemController {
         FormItem formItem = new FormItem();
         formItem.setId(formItemId);
         formItemService.deleteById(formItemId);
+        return Result.success();
+    }
+
+    /**
+     * 根据id删除formItem
+     *
+     * @param formItems formItems
+     */
+    @ApiOperation(value = "批量删除formItem")
+    @DeleteMapping("")
+    public Result delete(@RequestBody List<FormItem> formItems) {
+        formItemService.deleteByIds(formItems);
         return Result.success();
     }
 

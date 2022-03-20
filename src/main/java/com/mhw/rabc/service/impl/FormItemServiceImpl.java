@@ -35,8 +35,23 @@ public class FormItemServiceImpl implements FormItemService {
     }
 
     @Override
+    public List<FormItem> findAll(String owner) {
+        return formItemMapper.findByOwnerLike(owner);
+    }
+
+    @Override
     public Page<FormItem> findAll(Pageable pageable) {
         return formItemMapper.findAll(pageable);
+    }
+
+    @Override
+    public Page<FormItem> findAll(Pageable pageable, String owner) {
+        return formItemMapper.findAllByOwnerLike(pageable, owner);
+    }
+
+    @Override
+    public Page<FormItem> findAll(Pageable pageable, String owner, String type) {
+        return formItemMapper.findAllByOwnerAndType(pageable,owner,type);
     }
 
     @Override
@@ -47,6 +62,11 @@ public class FormItemServiceImpl implements FormItemService {
     @Override
     public void deleteById(String formItemId) {
         formItemMapper.deleteById(formItemId);
+    }
+
+    @Override
+    public void deleteByIds(List<FormItem> formItems) {
+        formItemMapper.deleteAll(formItems);
     }
 
     @Override
