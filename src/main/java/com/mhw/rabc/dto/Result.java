@@ -142,6 +142,17 @@ public class Result<T> implements Serializable {
     }
 
     /**
+     * 失败返回，指定code,msg
+     *
+     * @param code
+     * @param msg
+     * @return : Result<T>
+     */
+    public static <T> Result<T> failed(int code, String msg) {
+        return restResult(null, code, msg);
+    }
+
+    /**
      * 失败返回，指定code,msg,data
      *
      * @param code

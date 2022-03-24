@@ -2,9 +2,9 @@ package com.mhw.rabc.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author 1132493269@qq.com
@@ -14,9 +14,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/test")
 public class TestController {
+
     @ApiOperation(value = "hello word!")
     @GetMapping("/hello")
     public String hello(){
+        return "hello";
+    }
+
+    @ApiOperation(value = "file tes")
+    @PostMapping("/file")
+    public String file(@RequestParam("uploadFile") MultipartFile zipFile){
         return "hello";
     }
 }

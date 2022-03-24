@@ -1,6 +1,7 @@
 package com.mhw.rabc.service;
 
 import com.mhw.rabc.entity.Form;
+import com.mhw.rabc.entity.FormItem;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -27,6 +28,15 @@ public interface FormService {
      * @return List<Form>
      */
     Page<Form> findAll(Pageable pageable);
+
+    /**
+     * 分页列表
+     *
+     * @param owner    所有者
+     * @param pageable 分页参数
+     * @return List<Form>
+     */
+    Page<Form> findAll(Pageable pageable, String owner);
 
     /**
      * 根据id查询form

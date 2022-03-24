@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * @className: FormServiceImpl
- * @description: TODO
+ * @description: FormServiceImpl
  * @author: mhw
  * @date: 2022/3/15
  * @version: 1.0
@@ -35,6 +35,11 @@ public class FormServiceImpl implements FormService {
     @Override
     public Page<Form> findAll(Pageable pageable) {
         return formMapper.findAll(pageable);
+    }
+
+    @Override
+    public Page<Form> findAll(Pageable pageable, String owner) {
+        return formMapper.findAllByOwnerLike(pageable, owner);
     }
 
     @Override

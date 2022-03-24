@@ -4,7 +4,6 @@ import com.mhw.rabc.dto.MangoPageDTO;
 import com.mhw.rabc.dto.PageDTO;
 import com.mhw.rabc.dto.Result;
 import com.mhw.rabc.entity.Form;
-import com.mhw.rabc.entity.FormItem;
 import com.mhw.rabc.service.FormService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -14,6 +13,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -53,8 +53,8 @@ public class FormController {
     @ApiOperation(value = "分页列表")
     @GetMapping("")
     public Result pageList(PageDTO pageDTO) {
-        MangoPageDTO mangoPageDTO = new MangoPageDTO(pageDTO.getPage(), pageDTO.getLimit(), Sort.by(Sort.Direction.ASC, "id"));
-        Page<Form> formItemList = formService.findAll(mangoPageDTO);
+        MangoPageDTO mangoPageDTO = new MangoPageDTO(pageDTO.getPage(), pageDTO.getLimit(), Sort.by(Sort.Direction.ASC, "gmtCreate"));
+        Page<Form> formItemList = formService.findAll(mangoPageDTO,SecurityContextHolder.getContext().getAuthentication().getName());
         return Result.check(formItemList);
     }
 
@@ -79,6 +79,7 @@ public class FormController {
     @PostMapping("")
     public Result addNewForm(@RequestBody Form form) {
         form.setId(UUID.randomUUID().toString());
+        form.setGmtCreate(LocalDateTime.now());
         form.setOwner(SecurityContextHolder.getContext().getAuthentication().getName());
         Form res = formService.save(form);
         return Result.check(res);

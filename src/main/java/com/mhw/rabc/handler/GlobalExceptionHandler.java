@@ -1,6 +1,8 @@
 package com.mhw.rabc.handler;
 
 
+import com.aliyun.oss.ClientException;
+import com.aliyun.oss.OSSException;
 import com.mhw.rabc.dto.Result;
 import com.mhw.rabc.exception.MyBaseException;
 import lombok.extern.slf4j.Slf4j;
@@ -8,8 +10,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.security.sasl.AuthenticationException;
-import java.nio.file.AccessDeniedException;
 
 /**
  * @className: GlobalExceptionHandler
@@ -28,6 +28,32 @@ public class GlobalExceptionHandler {
     public Result error(MyBaseException e) {
         e.printStackTrace();
         return Result.failed(e.getMessage());
+    }
+
+    /**
+     * aliyun oss 异常捕获
+     *
+     * @param e 异常
+     * @return Result
+     */
+    @ExceptionHandler(OSSException.class)
+    @ResponseBody
+    public Result error(OSSException e) {
+        e.printStackTrace();
+        return Result.failed(Integer.parseInt(e.getErrorCode()), e.getMessage());
+    }
+
+    /**
+     * aliyun oss 异常捕获
+     *
+     * @param e 异常
+     * @return Result
+     */
+    @ExceptionHandler(ClientException.class)
+    @ResponseBody
+    public Result error(ClientException e) {
+        e.printStackTrace();
+        return Result.failed(Integer.parseInt(e.getErrorCode()), e.getMessage());
     }
 
     @ExceptionHandler(Exception.class)

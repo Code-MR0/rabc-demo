@@ -22,12 +22,19 @@
         <commins-pools.version>2.10.0</commins-pools.version>
         <mysql.version>5.1.46</mysql.version>
         <lombok.version>1.18.22</lombok.version>
+        <aliyun-sdk-oss.version>3.10.2</aliyun-sdk-oss.version>
     </properties>
     <dependencies>
         <!--web-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--aliyun-sdk-oss-->
+        <dependency>
+            <groupId>com.aliyun.oss</groupId>
+            <artifactId>aliyun-sdk-oss</artifactId>
+            <version>${aliyun-sdk-oss.version}</version>
         </dependency>
         <!--redis-->
         <dependency>
