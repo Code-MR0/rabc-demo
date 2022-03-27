@@ -21,6 +21,10 @@ spring:
         max-wait: -1
         max-idle: 0
         min-idle: 0
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 1000MB
 # OSS相关配置信息
 aliyun:
   oss:

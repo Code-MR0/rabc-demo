@@ -6,6 +6,8 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,7 +30,15 @@ public class FormItem extends PageDTO {
     private String label;
     @ApiModelProperty("type")
     private String type;
+    @ApiModelProperty("value")
+    private String value;
+    @ApiModelProperty("range")
+    private ArrayList<String> range;
     @ApiModelProperty("itemOptions")
     private List<ItemOption> values;
+    @ApiModelProperty("check")
+    private Check check;
+    @ApiModelProperty("创建时间")
+    private LocalDateTime gmtCreate;
 
 }

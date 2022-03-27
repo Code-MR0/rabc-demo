@@ -63,7 +63,6 @@ public class OssUtil {
         UploadFileRequest uploadFileRequest = new UploadFileRequest(bucketName,objectName);
         uploadFileRequest.setUploadFile(filePath);
         uploadFileRequest.setTaskNum(5);
-        uploadFileRequest.setPartSize(1024 * 1024);
         uploadFileRequest.setEnableCheckpoint(true);
         uploadFileRequest.setObjectMetadata(meta);
         ossClient.uploadFile(uploadFileRequest);

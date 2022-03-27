@@ -10,7 +10,7 @@ import javax.validation.constraints.Min;
 
 /**
  * @className: MangoPageDTO
- * @description: TODO
+ * @description: MangoPageDTO
  * @author: mhw
  * @date: 2022/3/15
  * @version: 1.0

@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
 
 
 /**
@@ -60,6 +61,6 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public Result error(Exception e) {
         e.printStackTrace();
-        return Result.failed("执行了全局异常处理");
+        return Result.failed(e.getMessage());
     }
 }
