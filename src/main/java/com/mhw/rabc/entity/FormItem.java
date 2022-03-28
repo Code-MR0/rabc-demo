@@ -32,6 +32,8 @@ public class FormItem extends PageDTO {
     private String type;
     @ApiModelProperty("value")
     private String value;
+    @ApiModelProperty("rate")
+    private Integer rate;
     @ApiModelProperty("range")
     private ArrayList<String> range;
     @ApiModelProperty("itemOptions")

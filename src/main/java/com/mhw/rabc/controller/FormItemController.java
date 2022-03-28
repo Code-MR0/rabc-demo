@@ -40,9 +40,10 @@ public class FormItemController {
      * 列表
      */
     @ApiOperation(value = "列表")
-    @GetMapping("/list/")
+    @GetMapping("/list")
     public Result getAllFormItems() {
-        List<FormItem> formItemList = formItemService.findAll();
+        String owner = SecurityContextHolder.getContext().getAuthentication().getName();
+        List<FormItem> formItemList = formItemService.findAll(owner);
         return Result.check(formItemList);
     }
 
