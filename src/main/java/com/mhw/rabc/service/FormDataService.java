@@ -19,9 +19,10 @@ public interface FormDataService {
     /**
      * 列表
      *
+     * @param formId formId
      * @return List<Form>
      */
-    List<FormData> findAll();
+    List<FormData> findAll(String formId);
 
     /**
      * 分页列表
@@ -34,11 +35,11 @@ public interface FormDataService {
     /**
      * 分页列表
      *
-     * @param owner    所有者
+     * @param formId    formId
      * @param pageable 分页参数
      * @return List<Form>
      */
-    Page<FormData> findAll(Pageable pageable, String owner);
+    Page<FormData> findAll(Pageable pageable, String formId);
 
     /**
      * 根据id查询form

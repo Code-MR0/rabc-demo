@@ -1,8 +1,10 @@
 package com.mhw.rabc.entity;
 
+import com.mhw.rabc.dto.PageDTO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -17,8 +19,9 @@ import java.util.List;
 
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 @ApiModel(value = "FormData对象", description = "表单数据")
-public class FormData{
+public class FormData extends PageDTO {
 
     @ApiModelProperty("表单填写者")
     private String owner;
@@ -26,6 +29,8 @@ public class FormData{
     private String describe;
     @ApiModelProperty("id")
     private String id;
+    @ApiModelProperty("formId")
+    private String formId;
     @ApiModelProperty("表单数据")
     private List<FormItem> form;
     @ApiModelProperty("创建时间")

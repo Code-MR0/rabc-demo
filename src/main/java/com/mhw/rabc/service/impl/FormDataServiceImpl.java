@@ -28,8 +28,8 @@ public class FormDataServiceImpl implements FormDataService {
     }
 
     @Override
-    public List<FormData> findAll() {
-        return null;
+    public List<FormData> findAll(String formId) {
+        return formDataMapper.findAllByFormIdLike(formId);
     }
 
     @Override
@@ -38,8 +38,8 @@ public class FormDataServiceImpl implements FormDataService {
     }
 
     @Override
-    public Page<FormData> findAll(Pageable pageable, String owner) {
-        return null;
+    public Page<FormData> findAll(Pageable pageable, String formId) {
+        return formDataMapper.findAllByFormIdLike(pageable, formId);
     }
 
     @Override
