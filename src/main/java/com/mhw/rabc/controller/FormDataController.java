@@ -5,6 +5,7 @@ import com.mhw.rabc.dto.PageDTO;
 import com.mhw.rabc.dto.Result;
 import com.mhw.rabc.entity.Form;
 import com.mhw.rabc.entity.FormData;
+import com.mhw.rabc.entity.FormItem;
 import com.mhw.rabc.service.FormDataService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -74,5 +75,31 @@ public class FormDataController {
     public Result getAllFormData(@PathVariable String formId) {
         List<FormData> formList = formDataService.findAll(formId);
         return Result.check(formList);
+    }
+
+    /**
+     * 根据id删除formData
+     *
+     * @param id id
+     */
+    @ApiOperation(value = "删除form")
+    @DeleteMapping("/{id}")
+    public Result delete(@PathVariable String id) {
+        Form form = new Form();
+        form.setId(id);
+        formDataService.deleteById(id);
+        return Result.success();
+    }
+
+    /**
+     * 根据id删除formData
+     *
+     * @param formData formData
+     */
+    @ApiOperation(value = "批量删除formItem")
+    @DeleteMapping("")
+    public Result delete(@RequestBody List<FormData> formData) {
+        formDataService.deleteByIds(formData);
+        return Result.success();
     }
 }

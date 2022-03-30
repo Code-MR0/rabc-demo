@@ -48,12 +48,17 @@ public class FormDataServiceImpl implements FormDataService {
     }
 
     @Override
-    public void deleteById(String formId) {
-
+    public void deleteById(String id) {
+        formDataMapper.deleteById(id);
     }
 
     @Override
     public FormData save(FormData formData) {
         return formDataMapper.save(formData);
+    }
+
+    @Override
+    public void deleteByIds(List<FormData> formData) {
+        formDataMapper.deleteAll(formData);
     }
 }

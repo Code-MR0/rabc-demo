@@ -5,30 +5,27 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.Version;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.List;
-
-import com.mhw.rabc.dto.PageDTO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
- * @className: Organization
- * @description: Organization对象
+ * @className: UserOrganization
+ * @description: UserOrganization对象
  * @author: mhw
- * @date: 2022-02-23
+ * @date: 2022-03-30
  * @version: 1.0
  **/
-@Data
-@EqualsAndHashCode(callSuper = false)
-@ApiModel(value = "Organization对象", description = "机构/组织表")
-public class Organization extends PageDTO implements Serializable {
+@Getter
+@Setter
+@TableName("user_organization")
+@ApiModel(value = "UserOrganization对象", description = "用户组织关联表")
+public class UserOrganization implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -36,14 +33,11 @@ public class Organization extends PageDTO implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    @ApiModelProperty("上级组织")
-    private Long pid;
+    @ApiModelProperty("组织id")
+    private Long organizationId;
 
-    @ApiModelProperty("组织名")
-    private String orgName;
-
-    @ApiModelProperty("组织编码")
-    private String orgCode;
+    @ApiModelProperty("用户id")
+    private Long userId;
 
     @ApiModelProperty("逻辑删除")
     @TableLogic
@@ -60,10 +54,6 @@ public class Organization extends PageDTO implements Serializable {
     @ApiModelProperty("版本")
     @Version
     private Integer version;
-
-    @ApiModelProperty("下属组织")
-    @TableField(exist = false)
-    private List<Organization> children;
 
 
 }

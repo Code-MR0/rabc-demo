@@ -52,9 +52,9 @@ public interface FormDataService {
     /**
      * 根据id删除form
      *
-     * @param formId id
+     * @param id id
      */
-    void deleteById(String formId);
+    void deleteById(String id);
 
     /**
      * 新增删除form
@@ -64,4 +64,10 @@ public interface FormDataService {
      */
     FormData save(FormData formData);
 
+    /**
+     * 根据ids删除form
+     *
+     * @param formData ids
+     */
+    void deleteByIds(List<FormData> formData);
 }
