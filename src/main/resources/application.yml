@@ -13,7 +13,7 @@ spring:
 
 mybatis-plus:
   typeEnumsPackage: com.mhw.rabc.enums
-  mapper-locations: lasspath:com/mhw/rabc/**/mapper/xml/*.xml
+  mapper-locations: classpath*:**/xml/*.xml
   global-config:
     db-config:
       logic-delete-field: is_delete # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)

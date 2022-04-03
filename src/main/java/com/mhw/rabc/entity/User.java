@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.Version;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import com.mhw.rabc.dto.PageDTO;
 import io.swagger.annotations.ApiModel;
@@ -63,5 +64,8 @@ public class User extends PageDTO implements Serializable {
     @Version
     private Integer version;
 
+    @ApiModelProperty(notes = "角色信息")
+    @TableField(exist = false)
+    private List<Role> roles;
 
 }

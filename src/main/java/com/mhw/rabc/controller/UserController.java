@@ -61,6 +61,17 @@ public class UserController {
     }
 
     /**
+     * 分页列表 with orgId
+     *
+     * @param user 分页信息
+     */
+    @ApiOperation(value = "分页列表 with orgId")
+    @GetMapping("/{orgId}")
+    public Result pageListByOrg(User user, @PathVariable long orgId) {
+        return Result.success(userService.pageListByOrg(user,orgId));
+    }
+
+    /**
      * list列表
      *
      * @param user 查询条件

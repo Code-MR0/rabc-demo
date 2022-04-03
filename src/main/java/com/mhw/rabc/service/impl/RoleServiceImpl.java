@@ -7,6 +7,7 @@ import com.mhw.rabc.exception.MyBaseException;
 import com.mhw.rabc.mapper.RoleMapper;
 import com.mhw.rabc.service.RoleService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -22,6 +23,8 @@ import java.util.List;
 @Service
 public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements RoleService {
 
+    @Autowired
+    RoleMapper roleMapper;
     @Override
     public boolean saveOne(Role role) {
         if (roleSaveCheck(role)) {
@@ -45,6 +48,11 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
         if (!flag){
         }
         return saveFail;
+    }
+
+    @Override
+    public List<Role> findRoleByUserId(long userId) {
+        return roleMapper.findRoleByUserId(userId);
     }
 
     /**

@@ -2,4 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mhw.rabc.mapper.UserMapper">
 
+    <select id="findAllByOrgId" resultType="com.mhw.rabc.entity.User">
+        SELECT DISTINCT
+        `user`.*
+        FROM
+        `user`
+        INNER JOIN user_organization ON `user`.id = user_organization.user_id
+        WHERE
+        FIND_IN_SET(
+        user_organization.organization_id,
+        getOrgChildren (#{orgId})
+        )
+        <if test="user.username != null">
+            AND `user`.username LIKE CONCAT('%',#{user.username},'%')
+        </if>
+        <if test="user.nickName != null">
+            AND `user`.nick_name LIKE CONCAT('%',#{user.nickName},'%')
+        </if>
+    </select>
 </mapper>

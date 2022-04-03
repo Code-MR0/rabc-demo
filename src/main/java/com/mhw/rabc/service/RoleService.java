@@ -31,4 +31,10 @@ public interface RoleService extends IService<Role> {
      */
     List<Role> saveList(List<Role> roleList);
 
+    /**
+     * 根据用户id获取角色
+     * @param userId 用户id
+     * @return List<Role>
+     */
+    List<Role> findRoleByUserId(long userId);
 }
