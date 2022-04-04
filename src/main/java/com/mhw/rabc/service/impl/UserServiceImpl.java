@@ -2,10 +2,14 @@ package com.mhw.rabc.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.mhw.rabc.dto.UserRoleAndOrgUpdateDTO;
 import com.mhw.rabc.entity.User;
+import com.mhw.rabc.entity.UserOrganization;
+import com.mhw.rabc.entity.UserRole;
 import com.mhw.rabc.exception.MyBaseException;
-import com.mhw.rabc.mapper.RoleMapper;
-import com.mhw.rabc.mapper.UserMapper;
+import com.mhw.rabc.mapper.*;
+import com.mhw.rabc.service.UserOrganizationService;
+import com.mhw.rabc.service.UserRoleService;
 import com.mhw.rabc.service.UserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +32,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     UserMapper userMapper;
     @Autowired
     RoleMapper roleMapper;
+    @Autowired
+    OrganizationMapper organizationMapper;
+    @Autowired
+    UserRoleMapper userRoleMapper;
+    @Autowired
+    UserOrganizationMapper userOrganizationMapper;
+    @Autowired
+    UserRoleService userRoleService;
+    @Autowired
+    UserOrganizationService userOrganizationService;
 
     @Override
     public boolean saveOne(User user) {
@@ -59,10 +73,37 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public Page<User> pageListByOrg(User user, long orgId) {
         Page<User> page = new Page<>(user.getPage(), user.getLimit());
         Page<User> userPage = userMapper.findAllByOrgId(page, user, orgId);
-        userPage.getRecords().forEach(i->{
+        userPage.getRecords().forEach(i -> {
             i.setRoles(roleMapper.findRoleByUserId(i.getId()));
+            i.setOrganizations(organizationMapper.findOrgByUserId(i.getId()));
         });
         return userPage;
+    }
+
+    @Override
+    public void updateUserRoleAndOrg(UserRoleAndOrgUpdateDTO data) {
+        List<Long> roles = data.getRoles();
+        List<Long> organizations = data.getOrganizations();
+        List<UserRole> userRoles = new ArrayList<>();
+        List<UserOrganization> userOrganizations = new ArrayList<>();
+        roles.forEach(i -> {
+            userRoles.add(new UserRole(data.getUserId(), i));
+        });
+        organizations.forEach(i -> {
+            userOrganizations.add(new UserOrganization(i, data.getUserId()));
+        });
+        QueryWrapper<UserRole> userRoleQueryWrapper = new QueryWrapper<>();
+        userRoleQueryWrapper.eq("user_id", data.getUserId());
+        userRoleMapper.delete(userRoleQueryWrapper);
+        QueryWrapper<UserOrganization> userOrganizationQueryWrapper = new QueryWrapper<>();
+        userOrganizationQueryWrapper.eq("user_id", data.getUserId());
+        userOrganizationMapper.delete(userOrganizationQueryWrapper);
+
+        boolean b = userRoleService.saveBatch(userRoles);
+        boolean b1 = userOrganizationService.saveBatch(userOrganizations);
+        if (!b||!b1){
+            throw new MyBaseException("分配失败");
+        }
     }
 
     /**

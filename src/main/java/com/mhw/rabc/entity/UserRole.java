@@ -5,48 +5,48 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.Version;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.List;
-
-import com.mhw.rabc.dto.PageDTO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * @className: User
- * @description: User对象
+ * @className: UserRole
+ * @description: UserRole对象
  * @author: mhw
- * @date: 2022-02-23
+ * @date: 2022-04-04
  * @version: 1.0
  **/
-@Data
-@EqualsAndHashCode(callSuper = false)
-@ApiModel(value = "User对象", description = "用户表")
-public class User extends PageDTO implements Serializable {
+@Getter
+@Setter
+@TableName("user_role")
+@ApiModel(value = "UserRole对象", description = "用户角色关联表")
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserRole implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    public UserRole(Long userId, Long roleId) {
+        this.userId = userId;
+        this.roleId = roleId;
+    }
 
     @ApiModelProperty("主键")
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    @ApiModelProperty("微信openid")
-    private String username;
+    @ApiModelProperty("用户id")
+    private Long userId;
 
-    @ApiModelProperty("密码")
-    private String password;
-
-    @ApiModelProperty("昵称")
-    private String nickName;
-
-    @ApiModelProperty("token")
-    private String token;
+    @ApiModelProperty("角色id")
+    private Long roleId;
 
     @ApiModelProperty("逻辑删除")
     @TableLogic
@@ -64,12 +64,5 @@ public class User extends PageDTO implements Serializable {
     @Version
     private Integer version;
 
-    @ApiModelProperty(notes = "角色信息")
-    @TableField(exist = false)
-    private List<Role> roles;
-
-    @ApiModelProperty(notes = "组织信息")
-    @TableField(exist = false)
-    private List<Organization> organizations;
 
 }

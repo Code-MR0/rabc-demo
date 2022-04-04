@@ -2,4 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mhw.rabc.mapper.OrganizationMapper">
 
+    <select id="findOrgByUserId" resultType="com.mhw.rabc.entity.Organization">
+        SELECT organization.*
+        FROM organization
+                 INNER JOIN user_organization ON organization.id = user_organization.organization_id
+        WHERE user_organization.user_id = #{userId}
+          AND user_organization.is_delete = 0
+          AND organization.is_delete = 0
+    </select>
 </mapper>

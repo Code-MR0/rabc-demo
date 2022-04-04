@@ -4,12 +4,14 @@ package com.mhw.rabc.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mhw.rabc.dto.Result;
+import com.mhw.rabc.dto.UserRoleAndOrgUpdateDTO;
 import com.mhw.rabc.entity.User;
 import com.mhw.rabc.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,6 +37,18 @@ public class UserController {
         this.userService = userService;
     }
 
+    /**
+     * 用户分配组织和角色
+     *
+     * @param data 角色组织信息
+     */
+    @ApiOperation(value = "用户分配组织和角色")
+    @PostMapping("/distribution")
+    @Transactional(rollbackFor=Exception.class)
+    public Result updateUserRoleAndOrg(@RequestBody UserRoleAndOrgUpdateDTO data) {
+        userService.updateUserRoleAndOrg(data);
+        return Result.success();
+    }
 
     /**
      * 分页列表
@@ -45,8 +59,8 @@ public class UserController {
     @GetMapping("/pageList")
     public Result pageList(User user) {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        if(user.getUsername()!=null){
-            queryWrapper.like("username",user.getUsername());
+        if (user.getUsername() != null) {
+            queryWrapper.like("username", user.getUsername());
         }
         if (user.getUsername() == null && user.getNickName() != null) {
             queryWrapper.like("nick_name", user.getNickName());
@@ -68,7 +82,7 @@ public class UserController {
     @ApiOperation(value = "分页列表 with orgId")
     @GetMapping("/{orgId}")
     public Result pageListByOrg(User user, @PathVariable long orgId) {
-        return Result.success(userService.pageListByOrg(user,orgId));
+        return Result.success(userService.pageListByOrg(user, orgId));
     }
 
     /**
@@ -117,10 +131,10 @@ public class UserController {
     @PostMapping("/save")
     public Result save(@RequestBody List<User> userList) {
         List<User> list = userService.saveList(userList);
-        if (list.size()==0){
+        if (list.size() == 0) {
             return Result.success();
         }
-        return Result.failed("部分用户添加失败",list);
+        return Result.failed("部分用户添加失败", list);
     }
 
     /**

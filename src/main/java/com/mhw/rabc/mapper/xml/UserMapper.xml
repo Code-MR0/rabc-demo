@@ -19,5 +19,8 @@
         <if test="user.nickName != null">
             AND `user`.nick_name LIKE CONCAT('%',#{user.nickName},'%')
         </if>
+        AND user_organization.is_delete = 0
+        AND `user`.is_delete = 0
+        ORDER BY `user`.id
     </select>
 </mapper>

@@ -11,7 +11,9 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -25,9 +27,16 @@ import lombok.Setter;
 @Setter
 @TableName("user_organization")
 @ApiModel(value = "UserOrganization对象", description = "用户组织关联表")
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserOrganization implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    public UserOrganization(Long organizationId, Long userId) {
+        this.organizationId = organizationId;
+        this.userId = userId;
+    }
 
     @ApiModelProperty("主键")
     @TableId(value = "id", type = IdType.AUTO)

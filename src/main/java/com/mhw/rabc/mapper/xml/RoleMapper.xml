@@ -3,12 +3,11 @@
 <mapper namespace="com.mhw.rabc.mapper.RoleMapper">
 
     <select id="findRoleByUserId" resultType="com.mhw.rabc.entity.Role">
-        SELECT
-            role.*
-        FROM
-            role
-                INNER JOIN user_role ON role.id = user_role.role_id
-        WHERE
-            user_role.user_id = #{userId}
+        SELECT role.*
+        FROM role
+                 INNER JOIN user_role ON role.id = user_role.role_id
+        WHERE user_role.user_id = #{userId}
+          AND user_role.is_delete = 0
+          AND role.is_delete = 0
     </select>
 </mapper>
