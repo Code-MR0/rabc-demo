@@ -5,67 +5,54 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.Version;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.mhw.rabc.dto.PageDTO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * @className: Permission
- * @description: Permission对象
+ * @className: RolePermission
+ * @description: RolePermission对象
  * @author: mhw
- * @date: 2022-02-23
+ * @date: 2022-04-06
  * @version: 1.0
  **/
-@Data
-@EqualsAndHashCode(callSuper = false)
-@ApiModel(value = "Permission对象", description = "权限表")
-public class Permission extends PageDTO implements Serializable {
+@Getter
+@Setter
+@TableName("role_permission")
+@ApiModel(value = "RolePermission对象", description = "用户权限关联表")
+@AllArgsConstructor
+@NoArgsConstructor
+public class RolePermission implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    public RolePermission(Long roleId, Long permissionId) {
+        this.roleId = roleId;
+        this.permissionId = permissionId;
+    }
 
     @ApiModelProperty("主键")
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    @ApiModelProperty("上级菜单")
-    private Long pid;
+    @ApiModelProperty("角色Id")
+    private Long roleId;
 
-    @ApiModelProperty("菜单名")
-    private String name;
-
-    @ApiModelProperty("类型(1:菜单,2:按钮)")
-    private Integer type;
-
-    @ApiModelProperty("权限值")
-    private String permissionValue;
-
-    @ApiModelProperty("访问路径")
-    private String path;
-
-    @ApiModelProperty("组件路径")
-    private String component;
-
-    @ApiModelProperty("组件名称")
-    private String componentName;
-
-    @ApiModelProperty("图标")
-    private String icon;
-
-    @ApiModelProperty("状态")
-    private Integer status;
+    @ApiModelProperty("权限id")
+    private Long permissionId;
 
     @ApiModelProperty("逻辑删除")
     @TableLogic
-    private Integer isDeleted;
+    private Integer isDelete;
 
     @ApiModelProperty("创建时间")
     @TableField(fill = FieldFill.INSERT)
@@ -79,9 +66,8 @@ public class Permission extends PageDTO implements Serializable {
     @Version
     private Integer version;
 
-    @ApiModelProperty("下级菜单")
+    @ApiModelProperty(notes = "权限信息")
     @TableField(exist = false)
-    private List<Permission> children;
-
+    private List<Permission> permissions;
 
 }

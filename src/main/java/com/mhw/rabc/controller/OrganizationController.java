@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mhw.rabc.dto.Result;
 import com.mhw.rabc.entity.Organization;
 import com.mhw.rabc.service.OrganizationService;
-import com.mhw.rabc.util.OrgTreeUtil;
+import com.mhw.rabc.util.TreeUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -61,7 +61,7 @@ public class OrganizationController {
         // todo 组织树形结构封装
         QueryWrapper<Organization> queryWrapper = new QueryWrapper<>(organization);
         List<Organization> organizationList = organizationService.list(queryWrapper);
-        List<Organization> tree = OrgTreeUtil.createTree(organizationList, 0L);
+        List<Organization> tree = TreeUtil.createOrgTree(organizationList, 0L);
         return Result.success(tree);
     }
 

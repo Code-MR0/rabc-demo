@@ -2,16 +2,23 @@ package com.mhw.rabc.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.toolkit.SimpleQuery;
 import com.mhw.rabc.dto.Result;
+import com.mhw.rabc.entity.Permission;
 import com.mhw.rabc.entity.Role;
+import com.mhw.rabc.entity.RolePermission;
+import com.mhw.rabc.service.RolePermissionService;
 import com.mhw.rabc.service.RoleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,10 +35,12 @@ import java.util.List;
 @SuppressWarnings("rawtypes")
 public class RoleController {
     private final RoleService roleService;
+    private final RolePermissionService rolePermissionService;
 
     @Autowired
-    public RoleController(RoleService roleService) {
+    public RoleController(RoleService roleService, RolePermissionService rolePermissionService) {
         this.roleService = roleService;
+        this.rolePermissionService = rolePermissionService;
     }
 
 
@@ -156,6 +165,44 @@ public class RoleController {
     @DeleteMapping("/remove")
     public Result remove(@RequestBody List<Role> roleList) {
         boolean flag = roleService.removeByIds(roleList);
+        return Result.check(flag);
+    }
+
+    /**
+     * 更具roleId获取权限idList
+     * @param id roleId
+     * @return 权限idList
+     */
+    @ApiOperation(value = "更具roleId获取权限idList")
+    @GetMapping("/permission/{id}")
+    public Result getPermissionIdList(@PathVariable String id) {
+        QueryWrapper<RolePermission> wrapper = new QueryWrapper<>();
+        wrapper.eq("role_id",id);
+        List<RolePermission> entityIds = rolePermissionService.list(wrapper);
+        List<Long> list = new ArrayList<>();
+        entityIds.forEach(i->{
+            list.add(i.getPermissionId());
+        });
+        return Result.success(list);
+    }
+
+    /**
+     * 角色分配权限
+     *
+     * @param permissionIds permissionIds
+     */
+    @ApiOperation(value = "批量删除")
+    @PostMapping("/permission/{id}")
+    @Transactional(rollbackFor=Exception.class)
+    public Result remove(@RequestBody List<Long> permissionIds, @PathVariable Long id) {
+        List<RolePermission> list = new ArrayList<>(permissionIds.size());
+        permissionIds.forEach(i->{
+            list.add(new RolePermission(id,i));
+        });
+        QueryWrapper<RolePermission> wrapper = new QueryWrapper<>();
+        wrapper.eq("role_id",id);
+        rolePermissionService.remove(wrapper);
+        boolean flag = rolePermissionService.saveBatch(list);
         return Result.check(flag);
     }
 }

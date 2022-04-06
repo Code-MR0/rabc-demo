@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mhw.rabc.dto.Result;
 import com.mhw.rabc.entity.Permission;
 import com.mhw.rabc.service.PermissionService;
+import com.mhw.rabc.util.TreeUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @className: PermissionController
@@ -60,7 +62,8 @@ public class PermissionController {
     public Result list(Permission permission) {
         QueryWrapper<Permission> queryWrapper = new QueryWrapper<>(permission);
         List<Permission> permissionList = permissionService.list(queryWrapper);
-        return Result.success(permissionList);
+        List<Permission> tree = TreeUtil.createPreTree(permissionList, 0L);
+        return Result.success(tree);
     }
 
     /**
