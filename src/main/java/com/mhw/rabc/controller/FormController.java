@@ -4,6 +4,7 @@ import com.mhw.rabc.dto.MangoPageDTO;
 import com.mhw.rabc.dto.PageDTO;
 import com.mhw.rabc.dto.Result;
 import com.mhw.rabc.entity.Form;
+import com.mhw.rabc.entity.TemplateForm;
 import com.mhw.rabc.service.FormService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -98,6 +99,19 @@ public class FormController {
         formService.deleteById(formId);
         return Result.success();
     }
+
+    /**
+     * 根据id删除form
+     *
+     * @param formList formList
+     */
+    @ApiOperation(value = "批量删除Form")
+    @DeleteMapping("")
+    public Result delete(@RequestBody List<Form> formList) {
+        formService.deleteByIds(formList);
+        return Result.success();
+    }
+
 
     /**
      * 更新form

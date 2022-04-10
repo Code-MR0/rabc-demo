@@ -1,7 +1,6 @@
 package com.mhw.rabc.service;
 
-import com.mhw.rabc.entity.Form;
-import com.mhw.rabc.entity.FormItem;
+import com.mhw.rabc.entity.TemplateForm;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -9,41 +8,41 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * @className: FormService
- * @description: FormService
+ * @className: TemplateFormService
+ * @description: TemplateFormService
  * @author: mhw
- * @date: 2022/3/14
+ * @date: 2022/4/10
  * @version: 1.0
  **/
-public interface FormService {
+public interface TemplateFormService {
     /**
      * 列表
-     * @return List<Form>
+     * @return List<TemplateForm>
      */
-    List<Form> findAll();
+    List<TemplateForm> findAll();
 
     /**
      * 分页列表
      * @param pageable 分页参数
-     * @return List<Form>
+     * @return List<TemplateForm>
      */
-    Page<Form> findAll(Pageable pageable);
+    Page<TemplateForm> findAll(Pageable pageable);
 
     /**
      * 分页列表
      *
      * @param owner    所有者
      * @param pageable 分页参数
-     * @return List<Form>
+     * @return List<TemplateForm>
      */
-    Page<Form> findAll(Pageable pageable, String owner);
+    Page<TemplateForm> findAll(Pageable pageable, String owner);
 
     /**
      * 根据id查询form
      * @param formId id
-     * @return Form
+     * @return TemplateForm
      */
-    Optional<Form> findById(String formId);
+    Optional<TemplateForm> findById(String formId);
 
     /**
      * 根据id删除form
@@ -56,11 +55,11 @@ public interface FormService {
      * @param form form
      * @return form
      */
-    Form save( Form form);
+    TemplateForm save( TemplateForm form);
 
     /**
      * 批量删除
-     * @param formList formList
+     * @param templateForms templateForms
      */
-    void deleteByIds(List<Form> formList);
+    void deleteByIds(List<TemplateForm> templateForms);
 }

@@ -56,4 +56,9 @@ public class FormServiceImpl implements FormService {
     public Form save(Form form) {
         return formMapper.save(form);
     }
+
+    @Override
+    public void deleteByIds(List<Form> formList) {
+        formMapper.deleteAll(formList);
+    }
 }
