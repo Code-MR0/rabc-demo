@@ -48,6 +48,9 @@ public class User extends PageDTO implements Serializable {
     @ApiModelProperty("token")
     private String token;
 
+    @ApiModelProperty("email")
+    private String email;
+
     @ApiModelProperty("逻辑删除")
     @TableLogic
     private Integer isDelete;

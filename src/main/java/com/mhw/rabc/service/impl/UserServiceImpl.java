@@ -70,6 +70,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
+    public User getUserByName(String username) {
+        return userMapper.getUserByName(username);
+    }
+
+    @Override
     public Page<User> pageListByOrg(User user, long orgId) {
         Page<User> page = new Page<>(user.getPage(), user.getLimit());
         Page<User> userPage = userMapper.findAllByOrgId(page, user, orgId);

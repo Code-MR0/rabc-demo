@@ -2,6 +2,7 @@ package com.mhw.rabc.mapper;
 
 import com.mhw.rabc.entity.Role;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.mhw.rabc.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

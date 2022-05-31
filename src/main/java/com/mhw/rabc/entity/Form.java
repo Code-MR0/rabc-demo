@@ -27,6 +27,10 @@ public class Form {
     private String describe;
     @ApiModelProperty("id")
     private String id;
+    @ApiModelProperty("密码")
+    private String password;
+    @ApiModelProperty("填写地址")
+    private String url;
     @ApiModelProperty("状态")
     private Boolean status;
     @ApiModelProperty("表单标题")

@@ -25,4 +25,11 @@ public interface UserMapper extends BaseMapper<User> {
      * @return 用户信息
      */
     Page<User> findAllByOrgId(@Param("page") Page<User> page, @Param("user") User user, @Param("orgId") long orgId);
+
+    /**
+     * 根据用户名获取用户数据
+     * @param username 用户名
+     * @return 用户数据
+     */
+    User getUserByName(String username);
 }

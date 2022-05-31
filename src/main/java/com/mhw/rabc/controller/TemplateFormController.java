@@ -4,11 +4,13 @@ import com.mhw.rabc.dto.MangoPageDTO;
 import com.mhw.rabc.dto.PageDTO;
 import com.mhw.rabc.dto.Result;
 import com.mhw.rabc.entity.FormItem;
+import com.mhw.rabc.entity.Industry;
 import com.mhw.rabc.entity.TemplateForm;
 import com.mhw.rabc.service.TemplateFormService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -45,6 +47,24 @@ public class TemplateFormController {
     @GetMapping("/list")
     public Result getAllTemplateForms() {
         List<TemplateForm> templateFormList = templateFormService.findAll();
+        return Result.check(templateFormList);
+    }
+
+
+    
+    /**
+     * 列表
+     *
+     */
+    @ApiOperation(value = "列表")
+    @PostMapping("/list/industry")
+    public Result getAllTemplateFormsBy(@RequestBody(required = false)Industry industry) {
+        List<TemplateForm> templateFormList;
+        if (industry==null){
+            templateFormList = templateFormService.findAll();
+        } else {
+            templateFormList = templateFormService.findAll(industry);
+        }
         return Result.check(templateFormList);
     }
 

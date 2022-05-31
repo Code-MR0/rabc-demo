@@ -79,8 +79,11 @@ public class FormController {
     @ApiOperation(value = "新增form")
     @PostMapping("")
     public Result addNewForm(@RequestBody Form form) {
-        form.setId(UUID.randomUUID().toString());
+        String id = UUID.randomUUID().toString();
+        form.setId(id);
         form.setGmtCreate(LocalDateTime.now());
+        form.setStatus(false);
+        form.setUrl("http://mhw.free.idcfengye.com/#/from/myForms" +id);
         form.setOwner(SecurityContextHolder.getContext().getAuthentication().getName());
         Form res = formService.save(form);
         return Result.check(res);

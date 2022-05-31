@@ -23,4 +23,10 @@
         AND `user`.is_delete = 0
         ORDER BY `user`.id
     </select>
+    <select id="getUserByName" resultType="com.mhw.rabc.entity.User">
+        SELECT *
+        FROM `user`
+        WHERE `user`.username = #{username}
+          AND `user`.is_delete = 0 LIMIT 1
+    </select>
 </mapper>

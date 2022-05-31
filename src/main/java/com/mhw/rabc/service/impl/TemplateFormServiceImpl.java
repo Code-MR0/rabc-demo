@@ -1,5 +1,6 @@
 package com.mhw.rabc.service.impl;
 
+import com.mhw.rabc.entity.Industry;
 import com.mhw.rabc.entity.TemplateForm;
 import com.mhw.rabc.mapper.TemplateFormMapper;
 import com.mhw.rabc.service.TemplateFormService;
@@ -30,6 +31,11 @@ public class TemplateFormServiceImpl implements TemplateFormService {
     @Override
     public List<TemplateForm> findAll() {
         return templateFormMapper.findAll();
+    }
+
+    @Override
+    public List<TemplateForm> findAll(Industry industry) {
+        return templateFormMapper.findAllByIndustry(industry);
     }
 
     @Override

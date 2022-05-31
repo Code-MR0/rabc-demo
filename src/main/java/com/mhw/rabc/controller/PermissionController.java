@@ -151,5 +151,16 @@ public class PermissionController {
         return Result.check(flag);
     }
 
+    /**
+     * 根据用户ID获取Menus
+     *
+     * @param userId userId
+     */
+    @ApiOperation(value = "根据用户ID获取Menus")
+    @GetMapping("/{userId}/getMenus")
+    public Result getMenus(@PathVariable String userId){
+        return Result.success(permissionService.getMenus(userId));
+    }
+
 }
 

@@ -1,5 +1,6 @@
 package com.mhw.rabc.service;
 
+import com.mhw.rabc.entity.Industry;
 import com.mhw.rabc.entity.TemplateForm;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,6 +21,13 @@ public interface TemplateFormService {
      * @return List<TemplateForm>
      */
     List<TemplateForm> findAll();
+
+    /**
+     * 列表
+     * @param industry  industry
+     * @return List<TemplateForm>
+     */
+    List<TemplateForm> findAll(Industry industry);
 
     /**
      * 分页列表

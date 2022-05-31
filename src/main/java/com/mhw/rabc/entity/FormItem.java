@@ -38,6 +38,8 @@ public class FormItem extends PageDTO {
     private ArrayList<String> range;
     @ApiModelProperty("itemOptions")
     private List<ItemOption> values;
+    @ApiModelProperty("files")
+    private List<MyFile> files;
     @ApiModelProperty("check")
     private Check check;
     @ApiModelProperty("创建时间")

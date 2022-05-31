@@ -4,6 +4,8 @@ import com.mhw.rabc.entity.Permission;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 
 /**
  * @className: PermissionMapper
@@ -14,5 +16,12 @@ import org.apache.ibatis.annotations.Mapper;
  **/
 @Mapper
 public interface PermissionMapper extends BaseMapper<Permission> {
+
+    /**
+     * 根据用户id获取菜单
+     * @param userId userId
+     * @return List<Permission>
+     */
+    List<Permission> getMenus(String userId);
 
 }

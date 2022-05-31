@@ -33,6 +33,13 @@ public interface UserService extends IService<User> {
      */
     List<User> saveList(List<User> userList);
 
+    /**
+     * 根据用户名获取用户数据
+     * @param username 用户名
+     * @return 用户数据
+     */
+    User getUserByName(String username);
+
 
     /**
      * 根据组织id和查询条件获取用户信息

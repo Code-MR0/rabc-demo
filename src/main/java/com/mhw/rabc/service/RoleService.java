@@ -37,4 +37,5 @@ public interface RoleService extends IService<Role> {
      * @return List<Role>
      */
     List<Role> findRoleByUserId(long userId);
+
 }
